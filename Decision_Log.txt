@@ -1,0 +1,33 @@
+DRONE OPERATIONS COORDINATOR AI – DECISION LOG
+
+Key Assumptions
+The coordinator primarily performs operational validation rather than autonomous decision making.
+Google Sheets serves as a lightweight operations database.
+Human supervisors will approve suggested assignments.
+
+Architecture Decision
+A hybrid architecture was chosen:
+LLM / NLP → Understand user intent
+Rule Engine → Perform mission assignment
+
+This ensures deterministic behavior required in operational systems.
+
+Trade-offs
+Streamlit instead of React:
+Faster prototype delivery and zero setup for evaluators.
+
+Google Sheets instead of SQL:
+Meets assignment constraints and enables easy live testing.
+
+Gemini + Rule fallback:
+Avoids API failures and guarantees system reliability.
+
+Urgent Reassignment Interpretation
+Urgent reassignment is defined as replacing a failed pilot or drone during an active mission.
+The system searches for the nearest available compatible resources and provides a continuation plan.
+
+Future Improvements
+Weather API integration
+Distance-based optimization
+Automated scheduling calendar
+Push notification alerts
